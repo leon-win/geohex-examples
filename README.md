@@ -1,37 +1,129 @@
-## Welcome to GitHub Pages
+# geohex
 
-You can use the [editor on GitHub](https://github.com/leon-win/geohex.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[![Build Status](https://img.shields.io/travis/leon-win/geohex?style=flat-square)](https://travis-ci.org/leon-win/geohex)
+[![JavaScript Standard Style](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
+[![License: MIT](https://img.shields.io/github/license/leon-win/geohex?style=flat-square)](http://opensource.org/licenses/MIT)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Hexagonal geocoding system, library for converting geographic coordinates to hexagonal grid cells and vice versa.
 
-### Markdown
+This is ECMAScript 2015 fork of [GeoHex library](http://geohex.net) which was originally made by [@sa2da](http://twitter.com/sa2da).
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Installation
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```sh 
+npm install geohex --save
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Or grab from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/geohex):
 
-### Jekyll Themes
+```html
+<script src="https://cdn.jsdelivr.net/npm/geohex@0.0.4/lib/geohex.min.js"></script>
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/leon-win/geohex.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Or from [unpkg CDN](https://unpkg.com/geohex/):
 
-### Support or Contact
+```html
+<script src="https://unpkg.com/geohex@0.0.4/lib/geohex.min.js"></script>
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Usage
+
+### ES6 Modules 
+
+```js
+import Geohex from 'geohex'
+// or import { getCellByCode } from 'geohex'
+```
+
+### CommonJS
+
+```js
+const Geohex = require('geohex')
+// or const { getCellByCode } = require('geohex')
+```
+
+### JS modules:
+
+```html
+<script type="module">
+  import Geohex from 'geohex/src/index.js'
+  // or import { getCellByCode } from 'geohex/src/index.js'
+</script>
+```
+
+### Global variable
+
+```html
+<script src="geohex/lib/geohex.min.js"></script>
+```
+
+## Examples
+
+```javascript
+// Get Geohex cell instance by code
+const geohexCell = Geohex.getCellByCode('QH3360')
+
+// Get Geohex cell instance by geographic coordinates and zoom level
+const geohexCell = Geohex.getCellByLocation(59.943201, 30.324086, 4)
+
+// Get Geohex cell instance by cell coordinates and zoomLevel
+const geohexCell = Geohex.getCellByXY(326, 203, 4)
+
+// Get Geohex cell coordinates by geographic coordinates and zoom level
+Geohex.getXYByLocation(59.943201, 30.324086, 4):
+// { x: 326, y: 203 }
+
+// Get Geohex cell coordinates by code
+Geohex.getXYByCode('QH3360')
+// { x: 326, y: 203 }
+```
+
+### Geohex cell instance
+
+Geohex cell instance is hexagon grid cell with properties and methods:
+
+```javascript
+console.log(JSON.stringify(geohexCell, null, 2))
+// {
+//   "lat": 59.97788999458348,
+//   "lon": 30.37037037037038,
+//   "x": 326,
+//   "y": 203,
+//   "code": "QH3360"
+// }
+
+// Cell zoom level
+geohexCell.getZoomLevel()
+// 4
+
+// Cell side length in degrees
+geohexCell.getHexSize():
+// 9162.098006401464
+
+// Geographic coordinates of hexagon corners
+geohexCell.getHexCoords():
+// [
+//   { lat: 59.97788999458348, lon: 30.205761316872437 },
+//   { lat: 60.0491386517641, lon: 30.288065843621407 },
+//   { lat: 60.0491386517641, lon: 30.45267489711935 },
+//   { lat: 59.97788999458348, lon: 30.53497942386832 },
+//   { lat: 59.90648768479527, lon: 30.45267489711935 },
+//   { lat: 59.90648768479527, lon: 30.288065843621407 }
+// ]
+```
+
+## Other implementations
+* [Original GeoHex library](http://www.geohex.org)
+* [GeoHex TypeScript implementation](https://github.com/uupaa/GeoHex)
+* [GeoHex Dart implementation](https://github.com/NiKoTron/geohex)
+* [GeoHex Swift implementation](https://github.com/nekowen/GeoHex3.swift)
+* [GeoHex Scala implementation](https://github.com/teralytics/geohex)
+* [GeoHex Java implementation](https://github.com/chsh/geohex4j)
+* [GeoHex C# implementation](https://github.com/mattak/GeoHex.cs)
+
+## License
+[MIT](http://opensource.org/licenses/MIT)
+
+© 2009 @sa2da (http://twitter.com/sa2da) http://www.geohex.org
+
+© 2020 Leonid Vinogradov

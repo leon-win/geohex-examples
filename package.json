@@ -1,0 +1,23 @@
+{
+  "name": "geohex-examples",
+  "version": "1.0.0",
+  "homepage": "https://leon-win.github.io/geohex-examples/",
+  "description": "Examples of using Geohex library",
+  "main": "index.js",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leon-win/geohex-examples.git"
+  },
+  "bugs": {
+    "url": "https://github.com/leon-win/geohex-examples/issues"
+  },
+  "author": "Leonid Vinogradov <win.leon@pm.me>",
+  "keywords": [
+    "geohex",
+    "example"
+  ],
+  "license": "MIT"
+}

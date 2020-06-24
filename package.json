@@ -4,8 +4,11 @@
   "homepage": "https://leon-win.github.io/geohex-examples/",
   "description": "Examples of using Geohex library",
   "main": "index.js",
-  "devDependencies": {
-    "standard": "^14.3.4"
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt build && nuxt export",
+    "serve": "nuxt serve"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,20 @@
   "author": "Leonid Vinogradov <win.leon@pm.me>",
   "keywords": [
     "geohex",
-    "example"
+    "examples"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "nuxt": "^2.13.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^3.0.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.3.1",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "stylelint": "^13.6.1",
+    "stylelint-config-standard": "^20.0.0"
+  }
 }

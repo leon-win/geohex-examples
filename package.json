@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
     "generate": "nuxt build && nuxt export",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build && nuxt export",
     "serve": "nuxt serve"
   },
   "repository": {

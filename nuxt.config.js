@@ -1,10 +1,13 @@
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/geohex-examples/'
+  }
+} : {}
+
 export default {
   target: 'static',
   ssr: false,
   injectScripts: false,
-  generate: {
-    dir: 'docs'
-  },
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxtjs/stylelint-module'
@@ -44,5 +47,6 @@ export default {
         crossorigin: 'anonymous'
       }
     ]
-  }
+  },
+  ...routerBase
 }

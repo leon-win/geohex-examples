@@ -34,8 +34,8 @@ export default {
         crossorigin: 'anonymous'
       },
       {
-        src: 'https://cdn.jsdelivr.net/npm/geohex@0.0.6/lib/geohex.min.js',
-        integrity: 'sha256-TyvvNEvlKgyJt9IbTTp9vLkf3wbpknfe1bRBmq1VV1s=',
+        src: 'https://cdn.jsdelivr.net/npm/geohex@0.0.7/lib/geohex.min.js',
+        integrity: 'sha256-y6uC/ut4X+JjNhdz1OdEscXA7iN44aUWsmIN3zauUHI=',
         crossorigin: 'anonymous'
       }
     ],
